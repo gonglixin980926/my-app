@@ -27,16 +27,33 @@
             class Welcome extends React.Component{
                 constructor(props){
                     super(props);
-                    console.log(props);
+                    // console.log(props);
                     this.name = "ssss";
+                    this.state = {
+                        count:0
+                    }
                 }
-                say(){
-                    console.log("ssssdddddd");
+                add(num,event){
+                    // console.log("ssssdddddd");
+                    this.setState(({
+                        count:++this.state.count,
+                    }));
+                    console.log(num,event);
+                    console.log("rrr"+event.target.id);
+                    console.log(this.refs.btn);//取页面中的dom元素
+                    event.target.style.background = "red";
+
+                    // <button onClick={(event)=>{this.add(455,event)}} id="ssss" ref="btn">87878</button>
+
+
                 }
                 render(){
-                    return (<h1>hahah {this.props.id} {this.name}</h1>);
-
-
+                    return (
+                        <div>
+                            <button onClick={this.add.bind(this)} id="111">click</button>
+                            <h1 >hahah {this.props.id} {this.name} {this.state.count}</h1>
+                        </div>
+                    );
                 }
             }
             const element  = <Welcome id="ddd">sssss</Welcome>
