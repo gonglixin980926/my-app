@@ -29,7 +29,7 @@
                             <Product name="ddsss" myclick={this.change.bind(this)}></Product>
                         </div>
                     );
-                    // onClick={this.props.myclick}
+                    // onClick={this.props.myclick} 不可以传参  箭头函数可以传参数
                 }
             }
             class Product extends React.Component{
@@ -37,7 +37,8 @@
                     super(props);
                 }
                 render(){
-                    return (<div
+                    return (
+                        <div
                             onClick={
                                 ()=>{
                                     this.props.myclick();

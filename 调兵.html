@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <div id="root"></div>
+        <script src="reactjs/react.development.js"></script>
+        <script src="reactjs/react-dom.development.js"></script>
+        <script src="reactjs/browser.min.js"></script>
+
+        <script type="text/babel">
+         class Asolider extends React.Component{
+             constructor(props){
+                 super(props);
+                 this.state = {
+                     a:100
+                 }
+             }
+             change(num){
+                 console.log("dffff");
+                 this.setState({
+                     a:this.state.a-num>=0?this.state.a-num:this.state.a
+                 })
+
+             }
+             render(){
+                 return (
+                     <div>
+                         全部士兵数量：{this.state.a}
+                         <Gen myclick={this.change.bind(this,10)} >{this.state.a}</Gen>
+                         <Gen0 myclick={this.change.bind(this,20)}>{this.state.a}</Gen0>
+
+                     </div>
+                 )
+                     // <button onClick={this.change.bind(this)}>jian</button>
+             }
+         }
+         class Gen extends React.Component{
+             constructor(props){
+                 super(props);
+                 this.state = {
+                     num:100
+                 }
+             }
+             add(num){
+                 this.setState({
+                     num:this.state.num+num
+                 })
+             }
+             render(){
+                 return (
+                     <div>
+                         <div>将军a的士兵：{this.state.num}</div>
+                         <button onClick={
+                             ()=>{
+                                 this.props.myclick();
+                                 // console.log(this.props.children)
+                                 if(this.props.children>=10)
+                                 {
+                                     this.add(10);
+                                 }
+                             }
+                         }
+                         >调兵</button>
+                     </div>
+                 )
+             }
+
+         }
+
+         class Gen0 extends React.Component{
+             constructor(props){
+                 super(props);
+                 this.state = {
+                     num:100
+                 }
+             }
+             add(num){
+                 this.setState({
+                     num:this.state.num+num
+                 })
+             }
+             render(){
+                 return (
+                     <div>
+                         <div>将军a的士兵：{this.state.num}</div>
+                         <button onClick={
+                             ()=>{
+                                 this.props.myclick();
+                                 if(this.props.children>=20){
+                                     this.add(20);
+                                 }
+
+                             }
+                         }
+                         >调兵</button>
+                     </div>
+                 )
+             }
+
+         }
+         const element = <Asolider></Asolider>
+         ReactDOM.render(
+             element,
+             document.getElementById('root')
+         )
+        </script>
+</body>
+</html>
