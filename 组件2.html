@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <!--<div id="root">-->
+
+        <!--</div>-->
+        <script src="reactjs/babel.min.js"></script>
+        <script src="reactjs/react.development.js"></script>
+        <script src="reactjs/react-dom.development.js"></script>
+        <script type="text/babel">
+            // 无状态组件
+            const div = document.createElement('div');
+            document.body.appendChild(div);
+            // let Welcome =(props)=>{
+            //     return (
+            //         <div>
+            //             <p>sss</p>
+            //             <h1>{props.id}</h1>
+            //             <p>{props.children}</p>
+            //         </div>
+            //     );
+            // }
+            class Welcome extends React.Component{
+                constructor(props){
+                    super(props);
+                    console.log(props);
+                    this.name = "ssss";
+                }
+                say(){
+                    console.log("ssssdddddd");
+                }
+                render(){
+                    return (<h1>hahah {this.props.id} {this.name}</h1>);
+
+
+                }
+            }
+            const element  = <Welcome id="ddd">sssss</Welcome>
+            ReactDOM.render(
+                // <Welcome id="555">sssss</Welcome>
+                // <Welcome id="ssd"/>
+                element
+                ,
+                div
+                // document.getElementById('root')
+            )
+        </script>
+
+</body>
+</html>
