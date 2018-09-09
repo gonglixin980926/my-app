@@ -47,20 +47,34 @@
         }
         change(){
             console.log(this.refs.ipt.value)
-            this.setState({
-                list:[...this.state.list,{name:this.refs.ipt.value,check:false}]
-            })
-            this.refs.ipt.value = ""
+            if(this.refs.ipt.value){
+                this.setState({
+                    list:[...this.state.list,{name:this.refs.ipt.value,check:false}]
+                })
+                this.refs.ipt.value = ""
+            }
+
 
         }
 
         del(index){
             console.log(index)
+            this.state.list[index].check = false
             this.state.list.splice(index,1);
             this.setState({
                 list:this.state.list
+            });
+            let a = 0;
+            for(var i=0; i<this.state.list.length;i++){
+                if (this.state.list[i].check){
+                    a++;
+                }
+            }
+            this.setState({
+                finshed:a
             })
-            console.log(this.state.list)
+            console.log(this.state.list);
+
         }
         fn(index){
             console.log(this.state.list)
@@ -106,11 +120,19 @@
         constructor(props) {
             super(props);
         }
+        ic(){
+            console.log(this.refs.ich)
+            this.refs.ich.checked = false
+        }
         render() {
             return (
                 <li >
-                    <input type="checkbox" name="eee" onClick={this.props.clixk}/>{this.props.item.name}
-                    <button onClick={this.props.myclick}>删除</button>
+                    <input type="checkbox" ref="ich" defaultChecked={0} name="eee"  onChange ={this.props.clixk}/>{this.props.item.name}
+                    <button onClick={
+                        ()=>{
+                        this.props.myclick()
+                         this.ic();
+                    }}>删除</button>
                 </li>
             )
         }
