@@ -1,168 +1,3 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-    <!--<meta charset="UTF-8">-->
-    <!--<title>Title</title>-->
-    <!--<style>-->
-        <!--#container {-->
-            <!--width: 500px;-->
-            <!--margin: 0 auto;-->
-        <!--}-->
-        <!--li{-->
-            <!--width: 500px;-->
-            <!--list-style: none;-->
-        <!--}-->
-        <!--ul{-->
-            <!--width: 500px;-->
-        <!--}-->
-        <!--.uLi{-->
-            <!--background: red;-->
-        <!--}-->
-
-    <!--</style>-->
-<!--</head>-->
-<!--<body>-->
-<!--<div id="root"></div>-->
-<!--<script src="reactjs/react.development.js"></script>-->
-<!--<script src="reactjs/react-dom.development.js"></script>-->
-<!--<script src="reactjs/babel.min.js"></script>-->
-
-<!--<script type="text/babel">-->
-    <!--class Container extends React.Component {-->
-        <!--constructor(props) {-->
-            <!--super(props);-->
-            <!--this.state = {-->
-                <!--list: [-->
-                    <!--{-->
-                        <!--check:false,-->
-                        <!--name: "吃饭"-->
-                    <!--},-->
-                    <!--{-->
-                        <!--check:false,-->
-                        <!--name: "睡觉"-->
-                    <!--}, {-->
-                        <!--check:false,-->
-                        <!--name: "打豆豆"-->
-                    <!--}-->
-                <!--],-->
-                <!--finshed:0-->
-            <!--}-->
-        <!--}-->
-        <!--change(){-->
-            <!--console.log(this.refs.ipt.value)-->
-            <!--if(this.refs.ipt.value){-->
-                <!--this.setState({-->
-                    <!--list:[...this.state.list,{name:this.refs.ipt.value,check:false}]-->
-                <!--})-->
-                <!--this.refs.ipt.value = ""-->
-            <!--}-->
-
-
-        <!--}-->
-
-        <!--del(index){-->
-            <!--console.log(index)-->
-            <!--this.state.list[index].check = false-->
-            <!--this.state.list.splice(index,1);-->
-            <!--this.setState({-->
-                <!--list:this.state.list-->
-            <!--});-->
-            <!--let a = 0;-->
-            <!--for(var i=0; i<this.state.list.length;i++){-->
-                <!--if (this.state.list[i].check){-->
-                    <!--a++;-->
-                <!--}-->
-            <!--}-->
-            <!--this.setState({-->
-                <!--finshed:a-->
-            <!--})-->
-            <!--console.log(this.state.list);-->
-
-        <!--}-->
-        <!--fn(index){-->
-            <!--console.log(this.state.list)-->
-           <!--this.state.list[index].check = !this.state.list[index].check;-->
-            <!--console.log(this.state.list)-->
-
-            <!--this.setState({-->
-                <!--list:this.state.list,-->
-            <!--})-->
-            <!--let a = 0;-->
-            <!--for(var i=0; i<this.state.list.length;i++){-->
-               <!--if (this.state.list[i].check){-->
-                   <!--a++;-->
-               <!--}-->
-            <!--}-->
-            <!--this.setState({-->
-                <!--finshed:a-->
-            <!--})-->
-        <!--}-->
-        <!--render() {-->
-            <!--return (-->
-                <!--<div id="container">-->
-                    <!--<h1>todoList</h1>-->
-                    <!--任务：<input type="text" ref="ipt" placeholder="请开始你的表演" defaultValue=""/>-->
-                    <!--<br/>-->
-                    <!--<button onClick ={this.change.bind(this)}>保存任务</button>-->
-                    <!--<ul>-->
-                        <!--{-->
-                            <!--this.state.list.map((item, index) => {-->
-                                <!--return <Save clixk={this.fn.bind(this,index)} myclick={this.del.bind(this,index)}  item={item} index={index} key={index} inde={this.state.list}/>-->
-                            <!--})-->
-                        <!--}-->
-                        <!--<li>{this.state.finshed}已完成/{this.state.list.length}全部</li>-->
-                    <!--</ul>-->
-
-                <!--</div>-->
-            <!--)-->
-            <!--// <button onClick={this.change.bind(this)}>jian</button>-->
-        <!--}-->
-    <!--}-->
-
-    <!--class Save extends React.Component {-->
-        <!--constructor(props) {-->
-            <!--super(props);-->
-        <!--}-->
-        <!--ic(){-->
-            <!--console.log(this.refs.ich)-->
-            <!--this.refs.ich.checked = false-->
-        <!--}-->
-        <!--lis(){-->
-            <!--if(this.props.inde[this.props.index].check==true)-->
-            <!--{-->
-                <!--this.refs.liq.className="uLi";-->
-            <!--}else{-->
-                <!--this.refs.liq.className="";-->
-            <!--}-->
-
-            <!--console.log(this.props.inde);-->
-            <!--console.log(this.props.index);-->
-        <!--}-->
-        <!--render() {-->
-            <!--return (-->
-                <!--<li ref="liq" >-->
-                    <!--<input type="checkbox" ref="ich" defaultChecked={0} name="eee"  onChange ={()=>{-->
-                        <!--this.props.clixk;-->
-                        <!--this.lis();-->
-                    <!--}}/>{this.props.item.name}-->
-                    <!--<button onClick={-->
-                        <!--()=>{-->
-                        <!--this.props.myclick()-->
-                         <!--this.ic();-->
-                    <!--}}>删除</button>-->
-                <!--</li>-->
-            <!--)-->
-        <!--}-->
-    <!--}-->
-
-    <!--const element = <Container></Container>-->
-    <!--ReactDOM.render(-->
-        <!--element,-->
-        <!--document.getElementById('root')-->
-    <!--)-->
-<!--</script>-->
-<!--</body>-->
-<!--</html>-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -198,17 +33,21 @@
             this.state = {
                 list: [
                     {
-                        check:false,
+                        id:0,
+                        check:true,
                         name: "吃饭"
                     },
                     {
+                        id:1,
                         check:false,
                         name: "睡觉"
                     }, {
+                        id:2,
                         check:false,
                         name: "打豆豆"
                     }
                 ],
+                arr0:[],
                 finshed:0
             }
         }
@@ -216,7 +55,7 @@
             console.log(this.refs.ipt.value)
             if(this.refs.ipt.value){
                 this.setState({
-                    list:[...this.state.list,{name:this.refs.ipt.value,check:false}]
+                    list:[...this.state.list,{id:this.state.list[this.state.list.length-1].id+1,name:this.refs.ipt.value,check:false}]
                 })
                 this.refs.ipt.value = ""
             }
@@ -228,16 +67,27 @@
             this.setState({
                 list:this.state.list
             });
+           // console.log(this.state.list);
+            this.changefinshed();
+
+        }
+        changefinshed(){
             let a = 0;
             for(var i=0; i<this.state.list.length;i++){
                 if (this.state.list[i].check){
+                    this.state.arr0[a]=this.state.list[i];
                     a++;
+                }
+                for(var j=0; j<this.state.arr0.length;j++){
+                    if(this.state.arr0[j].check==false){
+                        this.state.arr0.splice(j,1);
+                    }
                 }
             }
             this.setState({
-                finshed:a
+                finshed:a,
+                arr0:this.state.arr0
             })
-            console.log(this.state.list);
         }
         fn(index){
             console.log(this.state.list)
@@ -246,34 +96,35 @@
             this.setState({
                 list:this.state.list,
             })
-            let a = 0;
-            for(var i=0; i<this.state.list.length;i++){
-                if (this.state.list[i].check){
-                    a++;
-                }
-            }
-            this.setState({
-                finshed:a
-            })
+            this.changefinshed();
+
+        }
+        componentDidMount() {
+            this.changefinshed();
         }
         render() {
             return (
                 <div id="container">
                     <h1>todoList</h1>
-                    任务：<input type="text"  ref="ipt" placeholder="请开始你的表演" defaultValue=""/>
+                    任务：<input type="text" ref="ipt" placeholder="请开始你的表演" defaultValue=""/>
                     <br/>
                     <button onClick ={this.change.bind(this)}>保存任务</button>
                     <ul>
                         {
                             this.state.list.map((item, index) => {
-                                return <Save clixk={this.fn.bind(this,index)} myclick={this.del.bind(this,index)} item={item} index={index} key={index} arr={this.state.list}/>
+                                return <Save clixk={this.fn.bind(this,index)} myclick={this.del.bind(this,index)} item={item} index={index} key={item.id} arr={this.state.list}/>
                             })
                         }
-                        <li>{this.state.finshed}已完成/{this.state.list.length}全部</li>
+                        <li>{this.state.finshed}已完成/{this.state.list.length}全部/;</li>
+                        {
+                            this.state.arr0.map((item,index)=>{
+                                return <li item={item} index={index} key={item.id}>{item.name}</li>
+                               // 修改值的时候  key需要用一个不变的属性id,index是变化的
+                            })
+                        }
                     </ul>
                 </div>
             )
-            // <button onClick={this.change.bind(this)}>jian</button>
         }
     }
     class Save extends React.Component {
@@ -284,24 +135,11 @@
             console.log(this.refs.ich)
             this.refs.ich.checked = false
         }
-        // lis(){
-        //     console.log();
-        //     //this.refs.ss.className="uLi";
-        //     console.log(this.props.arr);
-        //
-        //     if(this.refs.ich.checked)
-        //     {
-        //         console.log("qwerrrr");
-        //         this.refs.ss.className="uLi";
-        //     }else {
-        //         this.refs.ss.className="";
-        //     }
-        //
-        // }
+
         render() {
             return (
                 <li className ={this.props.item.check?"uLi":""}>
-                    <input  type="checkbox"  ref="ich" defaultChecked={0} name="eee"  onChange ={this.props.clixk} />{this.props.item.name}
+                    <input  type="checkbox"   ref="ich" defaultChecked={this.props.item.check} name="eee"  onChange ={this.props.clixk} />{this.props.item.name}
                     <button onClick={
                         ()=>{
                             this.props.myclick()
