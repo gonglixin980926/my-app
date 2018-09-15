@@ -5,13 +5,20 @@
     <title>Title</title>
 </head>
 <body>
-<script src="reactjs/babel.min.js"></script>
-<script src="reactjs/react.development.js"></script>
-<script src="reactjs/react-dom.development.js"></script>
+<div id="root">
+
+</div>
+<script src="../reactjs/babel.min.js"></script>
+<script src="../reactjs/react.development.js"></script>
+<script src="../reactjs/react-dom.development.js"></script>
 <script type="text/babel">
+
     class Show extends React.Component {
         constructor(props) {
             super(props);
+            this.state = {
+                msg:'789'
+            }
         }
 
         change(e) {
@@ -25,7 +32,8 @@
         render() {
             return (
                 <div>
-                    <h1>fefef</h1>
+                    <h1>{this.state.msg}</h1>
+                    <input type="text" defaultValue={this.state.msg} onChange={this.change.bind(this)}/>
                 </div>
             )
         }
@@ -37,6 +45,5 @@
         document.getElementById('root')
     );
 </script>
-
 </body>
 </html>
