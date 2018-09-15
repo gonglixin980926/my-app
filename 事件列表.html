@@ -260,7 +260,7 @@
             return (
                 <div id="container">
                     <h1>todoList</h1>
-                    任务：<input type="text" ref="ipt" placeholder="请开始你的表演" defaultValue=""/>
+                    任务：<input type="text"  ref="ipt" placeholder="请开始你的表演" defaultValue=""/>
                     <br/>
                     <button onClick ={this.change.bind(this)}>保存任务</button>
                     <ul>
@@ -284,24 +284,24 @@
             console.log(this.refs.ich)
             this.refs.ich.checked = false
         }
-        lis(){
-            console.log();
-            //this.refs.ss.className="uLi";
-            console.log(this.props.arr);
-
-            if(this.refs.ich.checked)
-            {
-                console.log("qwerrrr");
-                this.refs.ss.className="uLi";
-            }else {
-                this.refs.ss.className="";
-            }
-
-        }
+        // lis(){
+        //     console.log();
+        //     //this.refs.ss.className="uLi";
+        //     console.log(this.props.arr);
+        //
+        //     if(this.refs.ich.checked)
+        //     {
+        //         console.log("qwerrrr");
+        //         this.refs.ss.className="uLi";
+        //     }else {
+        //         this.refs.ss.className="";
+        //     }
+        //
+        // }
         render() {
             return (
-                <li ref="ss" >
-                    <input  type="checkbox"  ref="ich" defaultChecked={0} name="eee"  onChange ={this.props.clixk}  onClick={this.lis.bind(this)}/>{this.props.item.name}
+                <li className ={this.props.item.check?"uLi":""}>
+                    <input  type="checkbox"  ref="ich" defaultChecked={0} name="eee"  onChange ={this.props.clixk} />{this.props.item.name}
                     <button onClick={
                         ()=>{
                             this.props.myclick()
