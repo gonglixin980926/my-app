@@ -1,3 +1,168 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Title</title>-->
+    <!--<style>-->
+        <!--#container {-->
+            <!--width: 500px;-->
+            <!--margin: 0 auto;-->
+        <!--}-->
+        <!--li{-->
+            <!--width: 500px;-->
+            <!--list-style: none;-->
+        <!--}-->
+        <!--ul{-->
+            <!--width: 500px;-->
+        <!--}-->
+        <!--.uLi{-->
+            <!--background: red;-->
+        <!--}-->
+
+    <!--</style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div id="root"></div>-->
+<!--<script src="reactjs/react.development.js"></script>-->
+<!--<script src="reactjs/react-dom.development.js"></script>-->
+<!--<script src="reactjs/babel.min.js"></script>-->
+
+<!--<script type="text/babel">-->
+    <!--class Container extends React.Component {-->
+        <!--constructor(props) {-->
+            <!--super(props);-->
+            <!--this.state = {-->
+                <!--list: [-->
+                    <!--{-->
+                        <!--check:false,-->
+                        <!--name: "吃饭"-->
+                    <!--},-->
+                    <!--{-->
+                        <!--check:false,-->
+                        <!--name: "睡觉"-->
+                    <!--}, {-->
+                        <!--check:false,-->
+                        <!--name: "打豆豆"-->
+                    <!--}-->
+                <!--],-->
+                <!--finshed:0-->
+            <!--}-->
+        <!--}-->
+        <!--change(){-->
+            <!--console.log(this.refs.ipt.value)-->
+            <!--if(this.refs.ipt.value){-->
+                <!--this.setState({-->
+                    <!--list:[...this.state.list,{name:this.refs.ipt.value,check:false}]-->
+                <!--})-->
+                <!--this.refs.ipt.value = ""-->
+            <!--}-->
+
+
+        <!--}-->
+
+        <!--del(index){-->
+            <!--console.log(index)-->
+            <!--this.state.list[index].check = false-->
+            <!--this.state.list.splice(index,1);-->
+            <!--this.setState({-->
+                <!--list:this.state.list-->
+            <!--});-->
+            <!--let a = 0;-->
+            <!--for(var i=0; i<this.state.list.length;i++){-->
+                <!--if (this.state.list[i].check){-->
+                    <!--a++;-->
+                <!--}-->
+            <!--}-->
+            <!--this.setState({-->
+                <!--finshed:a-->
+            <!--})-->
+            <!--console.log(this.state.list);-->
+
+        <!--}-->
+        <!--fn(index){-->
+            <!--console.log(this.state.list)-->
+           <!--this.state.list[index].check = !this.state.list[index].check;-->
+            <!--console.log(this.state.list)-->
+
+            <!--this.setState({-->
+                <!--list:this.state.list,-->
+            <!--})-->
+            <!--let a = 0;-->
+            <!--for(var i=0; i<this.state.list.length;i++){-->
+               <!--if (this.state.list[i].check){-->
+                   <!--a++;-->
+               <!--}-->
+            <!--}-->
+            <!--this.setState({-->
+                <!--finshed:a-->
+            <!--})-->
+        <!--}-->
+        <!--render() {-->
+            <!--return (-->
+                <!--<div id="container">-->
+                    <!--<h1>todoList</h1>-->
+                    <!--任务：<input type="text" ref="ipt" placeholder="请开始你的表演" defaultValue=""/>-->
+                    <!--<br/>-->
+                    <!--<button onClick ={this.change.bind(this)}>保存任务</button>-->
+                    <!--<ul>-->
+                        <!--{-->
+                            <!--this.state.list.map((item, index) => {-->
+                                <!--return <Save clixk={this.fn.bind(this,index)} myclick={this.del.bind(this,index)}  item={item} index={index} key={index} inde={this.state.list}/>-->
+                            <!--})-->
+                        <!--}-->
+                        <!--<li>{this.state.finshed}已完成/{this.state.list.length}全部</li>-->
+                    <!--</ul>-->
+
+                <!--</div>-->
+            <!--)-->
+            <!--// <button onClick={this.change.bind(this)}>jian</button>-->
+        <!--}-->
+    <!--}-->
+
+    <!--class Save extends React.Component {-->
+        <!--constructor(props) {-->
+            <!--super(props);-->
+        <!--}-->
+        <!--ic(){-->
+            <!--console.log(this.refs.ich)-->
+            <!--this.refs.ich.checked = false-->
+        <!--}-->
+        <!--lis(){-->
+            <!--if(this.props.inde[this.props.index].check==true)-->
+            <!--{-->
+                <!--this.refs.liq.className="uLi";-->
+            <!--}else{-->
+                <!--this.refs.liq.className="";-->
+            <!--}-->
+
+            <!--console.log(this.props.inde);-->
+            <!--console.log(this.props.index);-->
+        <!--}-->
+        <!--render() {-->
+            <!--return (-->
+                <!--<li ref="liq" >-->
+                    <!--<input type="checkbox" ref="ich" defaultChecked={0} name="eee"  onChange ={()=>{-->
+                        <!--this.props.clixk;-->
+                        <!--this.lis();-->
+                    <!--}}/>{this.props.item.name}-->
+                    <!--<button onClick={-->
+                        <!--()=>{-->
+                        <!--this.props.myclick()-->
+                         <!--this.ic();-->
+                    <!--}}>删除</button>-->
+                <!--</li>-->
+            <!--)-->
+        <!--}-->
+    <!--}-->
+
+    <!--const element = <Container></Container>-->
+    <!--ReactDOM.render(-->
+        <!--element,-->
+        <!--document.getElementById('root')-->
+    <!--)-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +180,9 @@
         ul{
             width: 500px;
         }
-
+        .uLi{
+            background: red;
+            }
     </style>
 </head>
 <body>
@@ -53,10 +220,7 @@
                 })
                 this.refs.ipt.value = ""
             }
-
-
         }
-
         del(index){
             console.log(index)
             this.state.list[index].check = false
@@ -74,21 +238,19 @@
                 finshed:a
             })
             console.log(this.state.list);
-
         }
         fn(index){
             console.log(this.state.list)
-           this.state.list[index].check = !this.state.list[index].check;
+            this.state.list[index].check = !this.state.list[index].check;
             console.log(this.state.list)
-
             this.setState({
                 list:this.state.list,
             })
             let a = 0;
             for(var i=0; i<this.state.list.length;i++){
-               if (this.state.list[i].check){
-                   a++;
-               }
+                if (this.state.list[i].check){
+                    a++;
+                }
             }
             this.setState({
                 finshed:a
@@ -104,18 +266,16 @@
                     <ul>
                         {
                             this.state.list.map((item, index) => {
-                                return <Save clixk={this.fn.bind(this,index)} myclick={this.del.bind(this,index)} item={item} index={index} key={index}/>
+                                return <Save clixk={this.fn.bind(this,index)} myclick={this.del.bind(this,index)} item={item} index={index} key={index} arr={this.state.list}/>
                             })
                         }
                         <li>{this.state.finshed}已完成/{this.state.list.length}全部</li>
                     </ul>
-
                 </div>
             )
             // <button onClick={this.change.bind(this)}>jian</button>
         }
     }
-
     class Save extends React.Component {
         constructor(props) {
             super(props);
@@ -124,20 +284,33 @@
             console.log(this.refs.ich)
             this.refs.ich.checked = false
         }
+        lis(){
+            console.log();
+            //this.refs.ss.className="uLi";
+            console.log(this.props.arr);
+
+            if(this.refs.ich.checked)
+            {
+                console.log("qwerrrr");
+                this.refs.ss.className="uLi";
+            }else {
+                this.refs.ss.className="";
+            }
+
+        }
         render() {
             return (
-                <li >
-                    <input type="checkbox" ref="ich" defaultChecked={0} name="eee"  onChange ={this.props.clixk}/>{this.props.item.name}
+                <li ref="ss" >
+                    <input  type="checkbox"  ref="ich" defaultChecked={0} name="eee"  onChange ={this.props.clixk}  onClick={this.lis.bind(this)}/>{this.props.item.name}
                     <button onClick={
                         ()=>{
-                        this.props.myclick()
-                         this.ic();
-                    }}>删除</button>
+                            this.props.myclick()
+                            this.ic();
+                        }}>删除</button>
                 </li>
             )
         }
     }
-
     const element = <Container></Container>
     ReactDOM.render(
         element,
