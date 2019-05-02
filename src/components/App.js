@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
 import store from '../store.js'
 import {connect} from 'react-redux'
+import action from './../action/ADD'
 //定义action
-const add = ()=>{
-    console.log("----action");
+// const add = ()=>{
+//     console.log("----action");
+//     return{
+//         type:'ADD'
+//     }
+// }
+const num = ()=>{
     return{
-        type:'ADD'
+        type: 'ASD'
     }
 }
 class App extends Component {
  addHandle(){
      //触发action
-     store.dispatch(add())
+     console.log(action.ADD);
+     // store.dispatch(type)
+     store.dispatch(num())
 
  }
 
@@ -27,9 +35,10 @@ class App extends Component {
   }
 }
 
-const mapStateToprops = (state)=>{
+// const mapStateToprops = (state)=>{
+const NewProps = (state)=>{
     return{
         count:state.count
     }
 }
-export default connect(mapStateToprops)(App);
+export default connect(NewProps)(App);

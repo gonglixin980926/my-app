@@ -5,6 +5,7 @@ import { combineReducers } from "redux";
 //count 是state中的属性
 
 const count = (state=0,action)=>{
+    console.log("count:"+state);
     console.log(state,action);
     switch (action.type){
         case 'ADD':
@@ -14,9 +15,13 @@ const count = (state=0,action)=>{
     }
 
 }
+const sum = (state=4,action)=>{
+        console.log("sum:"+state);
+        return state+1;
 
+}
 const reducer =  combineReducers({
-    count
+    count,sum
 })
 
 export default reducer;
