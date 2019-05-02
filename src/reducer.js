@@ -16,6 +16,7 @@ const count = (state=0,action)=>{
 
 }
 const sum = (state=4,action)=>{
+
         console.log("sum:"+state);
         return state+1;
 
