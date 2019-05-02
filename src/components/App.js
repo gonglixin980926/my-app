@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import store from '../store.js'
 import {connect} from 'react-redux'
-import action from './../action/ADD'
+import {ADD} from './../action'
+// import action from './../action'
 //定义action
 // const add = ()=>{
 //     console.log("----action");
@@ -17,7 +18,9 @@ const num = ()=>{
 class App extends Component {
  addHandle(){
      //触发action
-     console.log(action.ADD);
+
+     // console.log(action.ADD);
+     console.log(ADD);
      // store.dispatch(type)
      store.dispatch(num())
 
